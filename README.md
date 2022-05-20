@@ -25,7 +25,7 @@ API : KAKAO LOGIN API
 [Instargram API 명세서](https://docs.google.com/spreadsheets/d/1RCGTnfLsHCR7j9aqGyYJGiCEWfYdHAFDfJWjHVFKF9k/edit?usp=sharing)
 
 ## ERD 설계
-![InstargramDB](https://user-images.githubusercontent.com/73810809/169611228-da9d94cb-8848-429f-b4df-9f13af985ec6.png)
+![InstargramDB](https://user-images.githubusercontent.com/73810809/169624503-e5707181-03b0-4bd4-a5cb-a07a6b38b4dd.png)
 
 
 ---
