@@ -61,6 +61,14 @@ public class ProfileProvider {
         }
     }
 
+    public int checkprofileEmail(String profileEmail) throws BaseException{
+        try{
+            return profileDao.checkprofileEmail(profileEmail);
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
     public PostLoginRes logIn(PostLoginReq postLoginReq) throws BaseException{
         Profile profile = profileDao.getPwd(postLoginReq);
         String encryptPwd;

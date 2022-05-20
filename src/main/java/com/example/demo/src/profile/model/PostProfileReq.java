@@ -10,4 +10,5 @@ import lombok.Setter;
 public class PostProfileReq {
     private String profileUserID;
     private String profileUserPW;
+    private String profileEmail;
 }

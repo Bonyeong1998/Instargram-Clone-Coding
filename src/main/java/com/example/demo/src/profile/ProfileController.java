@@ -79,6 +79,9 @@ public class ProfileController {
         if(postProfileReq.getProfileUserPW() == null){
             return new BaseResponse<>(POST_PROFILE_EMPTY_PW);
         }
+        if(postProfileReq.getProfileEmail() == null){
+            return new BaseResponse<>(POST_USERS_EMPTY_EMAIL);
+        }
         try {
             PostProfileRes postProfileRes = profileService.createProfile(postProfileReq);
             return new BaseResponse<>(postProfileRes);

@@ -32,6 +32,10 @@ public class ProfileService {
             throw new BaseException(POST_PROFILE_EXISTS_ID);
         }
 
+        if(profileProvider.checkprofileEmail(postProfileReq.getProfileEmail())==1){
+            throw new BaseException(POST_USERS_EXISTS_EMAIL);
+        }
+
         String pwd;
         try {
             pwd = new SHA256().encrypt(postProfileReq.getProfileUserPW());

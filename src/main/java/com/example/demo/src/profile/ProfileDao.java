@@ -56,8 +56,8 @@ public class ProfileDao {
     }
 
     public int createProfile(PostProfileReq postProfileReq){
-        String createProfileQuery = "insert into ProfileTable(profileUserID, profileUserPW) VALUES(?, ?)";
-        Object[] createProfileParams = new Object[]{postProfileReq.getProfileUserID(),postProfileReq.getProfileUserPW()};
+        String createProfileQuery = "insert into ProfileTable(profileUserID, profileUserPW, profileEmail) VALUES(?, ?, ?)";
+        Object[] createProfileParams = new Object[]{postProfileReq.getProfileUserID(),postProfileReq.getProfileUserPW(),postProfileReq.getProfileEmail()};
         this.jdbcTemplate.update(createProfileQuery, createProfileParams);
 
         String lastInsertIdQuery = "select last_insert_id()";
@@ -109,6 +109,14 @@ public class ProfileDao {
         return this.jdbcTemplate.queryForObject(checkprofileUserIDQuery,
                 int.class,
                 checkprofileUserIDParam);
+    }
+
+    public int checkprofileEmail(String profileEmail){
+        String checkprofileEmailQuery = "select exists(select profileEmail from ProfileTable where profileEmail = ?)";
+        String checkprofileEmailParam = profileEmail;
+        return this.jdbcTemplate.queryForObject(checkprofileEmailQuery,
+                int.class,
+                checkprofileEmailParam);
     }
 
     public int modifyProfileLink(PatchProfileLinkReq patchProfileLinkReq){
