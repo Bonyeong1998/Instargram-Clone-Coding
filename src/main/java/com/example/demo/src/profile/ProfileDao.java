@@ -203,4 +203,15 @@ public class ProfileDao {
                         rs.getInt("userNo")),
                 getNoParams);
     }
+
+    public PostLoginReq getProfileInfo(String email){
+        String getProfileInfoQuery = "select profileUserID, profileUserPW from ProfileTable where profileEmail = ?";
+        String getProfileInfoParam = email;
+
+        return this.jdbcTemplate.queryForObject(getProfileInfoQuery,
+                (rs, rowNum) -> new PostLoginReq(
+                        rs.getString("profileUserID"),
+                        rs.getString("profileUserPW")),
+                getProfileInfoParam);
+    }
 }

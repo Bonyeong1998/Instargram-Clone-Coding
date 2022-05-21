@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
@@ -103,6 +104,35 @@ public class ProfileController {
             return new BaseResponse<>(postLoginRes);
         } catch (BaseException exception){
             return new BaseResponse<>(exception.getStatus());
+        }
+    }
+
+    /**
+     * 카카오로그인 API
+     * [GET] /profile/login/kakao
+     * @return BaseResponse<String>
+     */
+    @ResponseBody
+    @GetMapping("/login/kakao")
+    public BaseResponse<PostLoginRes> kakaoLogin(@RequestParam(required = false) String code){
+        System.out.println("code :" + code);
+        try {
+            String accessToken = profileService.getKakaoAccessToken(code);
+            System.out.println(accessToken);
+
+            HashMap<String, Object> userInfo = profileService.getUserInfo(accessToken);
+            System.out.println("login Controller : " + userInfo);
+
+            PostLoginRes postLoginRes = null;
+
+            if(profileProvider.checkprofileEmail(String.valueOf(userInfo.get("email"))) == 0){
+                return new BaseResponse<>(postLoginRes);
+            } else {
+                postLoginRes = profileProvider.getProfileInfo(String.valueOf(userInfo.get("email")));
+                return new BaseResponse<>(postLoginRes);
+            }
+        } catch (BaseException exception) {
+            return new BaseResponse<>((exception.getStatus()));
         }
     }
 

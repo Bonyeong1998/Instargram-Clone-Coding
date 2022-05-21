@@ -98,4 +98,16 @@ public class ProfileProvider {
             throw new BaseException(DATABASE_ERROR);
         }
     }
+
+    public PostLoginRes getProfileInfo(String email) throws BaseException{
+        PostLoginReq postLoginReq = profileDao.getProfileInfo(email);
+        String encryptPwd;
+        try {
+            encryptPwd = new SHA256().encrypt(postLoginReq.getProfileUserPW());
+            postLoginReq.setProfileUserPW(encryptPwd);
+        } catch (Exception ignored){
+            throw new BaseException(PASSWORD_DECRYPTION_ERROR);
+        }
+        return logIn(postLoginReq);
+    }
 }
