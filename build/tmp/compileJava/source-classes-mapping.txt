@@ -2,12 +2,12 @@ com/example/demo/src/follow/model/Following.java
  com.example.demo.src.follow.model.Following
 com/example/demo/utils/SHA256.java
  com.example.demo.utils.SHA256
-com/example/demo/config/Constant.java
- com.example.demo.config.Constant
 com/example/demo/src/profile/model/GetProfileNoRes.java
  com.example.demo.src.profile.model.GetProfileNoRes
-com/example/demo/utils/JwtService.java
- com.example.demo.utils.JwtService
+com/example/demo/config/Constant.java
+ com.example.demo.config.Constant
+com/example/demo/src/follow/FollowController.java
+ com.example.demo.src.follow.FollowController
 com/example/demo/src/follow/model/GetFollowerRes.java
  com.example.demo.src.follow.model.GetFollowerRes
 com/example/demo/src/profile/model/PatchProfileLinkReq.java
@@ -18,12 +18,12 @@ com/example/demo/utils/ValidationRegex.java
  com.example.demo.utils.ValidationRegex
 com/example/demo/src/follow/model/PostFollowReq.java
  com.example.demo.src.follow.model.PostFollowReq
-com/example/demo/src/follow/model/GetFriendlyRes.java
- com.example.demo.src.follow.model.GetFriendlyRes
+com/example/demo/src/follow/FollowService.java
+ com.example.demo.src.follow.FollowService
 com/example/demo/src/follow/FollowDao.java
  com.example.demo.src.follow.FollowDao
-com/example/demo/config/BaseException.java
- com.example.demo.config.BaseException
+com/example/demo/src/profile/ProfileService.java
+ com.example.demo.src.profile.ProfileService
 com/example/demo/src/profile/model/PatchProfileImageReq.java
  com.example.demo.src.profile.model.PatchProfileImageReq
 com/example/demo/src/profile/model/PatchProfilePwdReq.java
@@ -52,12 +52,12 @@ com/example/demo/src/profile/model/PatchProfileNameReq.java
  com.example.demo.src.profile.model.PatchProfileNameReq
 com/example/demo/src/follow/model/Follower.java
  com.example.demo.src.follow.model.Follower
-com/example/demo/DemoApplication.java
- com.example.demo.DemoApplication
+com/example/demo/src/profile/ProfileProvider.java
+ com.example.demo.src.profile.ProfileProvider
 com/example/demo/src/profile/model/PostProfileReq.java
  com.example.demo.src.profile.model.PostProfileReq
-com/example/demo/src/follow/model/PostFollowRes.java
- com.example.demo.src.follow.model.PostFollowRes
+com/example/demo/src/profile/ProfileDao.java
+ com.example.demo.src.profile.ProfileDao
 com/example/demo/src/profile/model/PostLoginRes.java
  com.example.demo.src.profile.model.PostLoginRes
 com/example/demo/config/secret/Secret.java
@@ -70,19 +70,19 @@ com/example/demo/src/follow/model/GetFollowingRes.java
  com.example.demo.src.follow.model.GetFollowingRes
 com/example/demo/src/follow/model/GetFollowCntRes.java
  com.example.demo.src.follow.model.GetFollowCntRes
-com/example/demo/src/profile/model/Profile.java
- com.example.demo.src.profile.model.Profile
-com/example/demo/src/profile/ProfileProvider.java
- com.example.demo.src.profile.ProfileProvider
-com/example/demo/src/follow/FollowService.java
- com.example.demo.src.follow.FollowService
-com/example/demo/src/profile/ProfileDao.java
- com.example.demo.src.profile.ProfileDao
-com/example/demo/src/profile/ProfileService.java
- com.example.demo.src.profile.ProfileService
-com/example/demo/src/follow/FollowController.java
- com.example.demo.src.follow.FollowController
+com/example/demo/src/follow/model/PostFollowRes.java
+ com.example.demo.src.follow.model.PostFollowRes
+com/example/demo/src/follow/model/GetFriendlyRes.java
+ com.example.demo.src.follow.model.GetFriendlyRes
+com/example/demo/config/BaseException.java
+ com.example.demo.config.BaseException
+com/example/demo/DemoApplication.java
+ com.example.demo.DemoApplication
+com/example/demo/utils/JwtService.java
+ com.example.demo.utils.JwtService
 com/example/demo/src/profile/ProfileController.java
  com.example.demo.src.profile.ProfileController
+com/example/demo/src/profile/model/Profile.java
+ com.example.demo.src.profile.model.Profile
 com/example/demo/src/follow/FollowProvider.java
  com.example.demo.src.follow.FollowProvider
