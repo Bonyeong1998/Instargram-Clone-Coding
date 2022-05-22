@@ -100,14 +100,13 @@ public class ProfileProvider {
     }
 
     public PostLoginRes getProfileInfo(String email) throws BaseException{
-        PostLoginReq postLoginReq = profileDao.getProfileInfo(email);
-        String encryptPwd;
+        Profile profile = profileDao.getProfileInfo(email);
         try {
-            encryptPwd = new SHA256().encrypt(postLoginReq.getProfileUserPW());
-            postLoginReq.setProfileUserPW(encryptPwd);
+            int userNo = profile.getUserNo();
+            String jwt = jwtService.createJwt(userNo);
+            return new PostLoginRes(userNo, jwt);
         } catch (Exception ignored){
             throw new BaseException(PASSWORD_DECRYPTION_ERROR);
         }
-        return logIn(postLoginReq);
     }
 }

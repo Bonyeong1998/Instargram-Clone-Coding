@@ -190,7 +190,8 @@ public class ProfileDao {
                         rs.getString("profileActNow"),
                         rs.getTimestamp("profileLastActTime"),
                         rs.getTimestamp("profileCreatedAt"),
-                        rs.getTimestamp("profileUpdatedAt")),
+                        rs.getTimestamp("profileUpdatedAt"),
+                        rs.getString("profileEmail")),
                 getPwdParams
         );
     }
@@ -204,14 +205,28 @@ public class ProfileDao {
                 getNoParams);
     }
 
-    public PostLoginReq getProfileInfo(String email){
-        String getProfileInfoQuery = "select profileUserID, profileUserPW from ProfileTable where profileEmail = ?";
+    public Profile getProfileInfo(String email){
+        String getProfileInfoQuery = "select * from ProfileTable where profileEmail = ?";
         String getProfileInfoParam = email;
 
         return this.jdbcTemplate.queryForObject(getProfileInfoQuery,
-                (rs, rowNum) -> new PostLoginReq(
+                (rs, rowNum) -> new Profile(
+                        rs.getInt("userNo"),
                         rs.getString("profileUserID"),
-                        rs.getString("profileUserPW")),
+                        rs.getString("profileImageUrl"),
+                        rs.getString("profileName"),
+                        rs.getString("profileCategory"),
+                        rs.getString("profileContent"),
+                        rs.getString("profileLink"),
+                        rs.getString("profileUserPW"),
+                        rs.getString("profileisDeleted"),
+                        rs.getString("profileActNow"),
+                        rs.getTimestamp("profileLastActTime"),
+                        rs.getTimestamp("profileCreatedAt"),
+                        rs.getTimestamp("profileUpdatedAt"),
+                        rs.getString("profileEmail")),
                 getProfileInfoParam);
     }
+
+
 }

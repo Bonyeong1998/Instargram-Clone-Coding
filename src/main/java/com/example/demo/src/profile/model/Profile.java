@@ -23,4 +23,5 @@ public class Profile {
     private Timestamp profileLastActTime;
     private Timestamp profileCreatedAt;
     private Timestamp profileUpdatedAt;
+    private String profileEmail;
 }

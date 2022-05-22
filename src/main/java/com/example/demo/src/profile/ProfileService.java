@@ -207,14 +207,12 @@ public class ProfileService {
             conn.setDoOutput(true);
 
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-            StringBuilder sb = new StringBuilder();
+            String sb = "grant_type=authorization_code" +
+                    "&client_id=3a7a3fe66ad4b16d2fa0b662cbaed117" +
+                    "&redirect_uri=https://diem-bon.shop/app/profile/login/kakao" +
+                    "&code=" + code;
 
-            sb.append("grant_type=authorization_code");
-            sb.append("&\t3a7a3fe66ad4b16d2fa0b662cbaed117");
-            sb.append("&redirect_uri=https://diem-bon.shop/app/profile/login/kakao");
-            sb.append("&code=" + code);
-
-            bw.write(sb.toString());
+            bw.write(sb);
             bw.flush();
 
             int responseCode = conn.getResponseCode();
